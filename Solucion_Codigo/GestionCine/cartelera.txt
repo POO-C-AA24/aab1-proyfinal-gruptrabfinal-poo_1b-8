@@ -1,0 +1,9 @@
+Cartelera:
+Interstellar:Ciencia Ficcion:12:00 PM:3D
+El Padrino:Drama:3:00 PM:2D
+Parasitos:Suspenso:6:00 PM:3D
+
+Combos:
+Combo 1:Palomitas grandes + Refresco grande:7.5
+Combo 2:Palomitas medianas + Refresco mediano + Hotdog:9.0
+Combo 3:Nachos + Refresco grande:6.5
