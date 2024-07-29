@@ -1,0 +1,52 @@
+-- schema.sql
+
+-- Eliminar tablas si ya existen
+DROP TABLE IF EXISTS Peliculas;
+DROP TABLE IF EXISTS Snacks;
+DROP TABLE IF EXISTS PromocionesSnacks;
+DROP TABLE IF EXISTS Ventas;
+DROP TABLE IF EXISTS SnacksVentas;
+
+-- Crear la tabla de Películas
+CREATE TABLE Peliculas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    precio REAL NOT NULL,
+    horario TEXT NOT NULL
+);
+
+-- Crear la tabla de Snacks
+CREATE TABLE Snacks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    precio REAL NOT NULL
+);
+
+-- Crear la tabla de Promociones de Snacks
+CREATE TABLE PromocionesSnacks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    snackId INTEGER NOT NULL,
+    descuento REAL NOT NULL,
+    FOREIGN KEY (snackId) REFERENCES Snacks(id)
+);
+
+-- Crear la tabla de Ventas
+CREATE TABLE Ventas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    peliculaId INTEGER NOT NULL,
+    horario TEXT NOT NULL,
+    cantidad INTEGER NOT NULL,
+    precio REAL NOT NULL,
+    FOREIGN KEY (peliculaId) REFERENCES Peliculas(id)
+);
+
+-- Crear la tabla de SnacksVentas
+CREATE TABLE SnacksVentas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ventaId INTEGER NOT NULL,
+    snackId INTEGER NOT NULL,
+    cantidad INTEGER NOT NULL,
+    FOREIGN KEY (ventaId) REFERENCES Ventas(id),
+    FOREIGN KEY (snackId) REFERENCES Snacks(id)
+);
+
